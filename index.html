@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selenium Sprint Lab | Login</title>
+    <link rel="stylesheet" href="shared.css" />
+  </head>
+  <body class="theme-login">
+    <div class="container">
+      <div class="hero">
+        <section class="panel">
+          <p class="eyebrow">Selenium Practice Portal</p>
+          <h1>Login first, then explore full UI automation labs.</h1>
+          <p class="lead">
+            This training site is designed for end-to-end Selenium practice with
+            real selectors, tables, frames, mouse actions, uploads, alerts, and
+            advanced DOM targets.
+          </p>
+          <div class="stats-grid">
+            <div class="stat">
+              <strong>12</strong>
+              <span>topic labs</span>
+            </div>
+            <div class="stat">
+              <strong>Secure</strong>
+              <span>login access</span>
+            </div>
+            <div class="stat">
+              <strong>Multi-page</strong>
+              <span>realistic navigation flow</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="hero-card">
+          <p class="eyebrow">Credentials</p>
+          <h2>Sign in to open the Selenium practice workspace.</h2>
+          <form id="login-form" class="stack" novalidate>
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" placeholder="JERISH" />
+
+            <label for="password">Password</label>
+            <div class="password-field">
+              <input id="password" name="password" type="password" placeholder="Jerish@123" />
+              <button
+                class="password-toggle"
+                type="button"
+                data-password-toggle="password"
+                aria-label="Show password"
+                aria-pressed="false"
+              >
+                <span class="password-toggle-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                    <path d="M12 5C6.5 5 2.1 8.4 1 12c1.1 3.6 5.5 7 11 7s9.9-3.4 11-7c-1.1-3.6-5.5-7-11-7Zm0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm0-2.2a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6Z" fill="currentColor" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+
+            <div class="button-row">
+              <button class="button primary" id="login-button" type="submit">Login</button>
+              <button class="button ghost" type="reset">Reset</button>
+            </div>
+            <p class="status-message" id="login-status" aria-live="polite"></p>
+          </form>
+        </section>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

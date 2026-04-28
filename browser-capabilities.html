@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browser Capabilities Practice</title>
+    <link rel="stylesheet" href="shared.css" />
+  </head>
+  <body class="theme-browser">
+    <div class="container">
+      <header class="nav-shell">
+        <div class="brand">Selenium Sprint Lab</div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="advanced-topics.html">Next: Advanced</a>
+        </nav>
+        <button class="button ghost" type="button" data-logout>Logout</button>
+      </header>
+
+      <section class="page-header with-visual">
+        <div>
+          <p class="eyebrow">Lab 10</p>
+          <h1>Screenshots, headless, SSL, ad block, and extensions.</h1>
+          <p class="lead">A static site cannot create real SSL errors or browser extensions by itself, but this page gives you targets and checkpoints to validate those browser setups in your Selenium framework.</p>
+          <div class="button-row">
+            <a
+              class="button secondary"
+              id="ssl-practice-link"
+              href="https://self-signed.badssl.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open SSL Test Page
+            </a>
+          </div>
+          <p class="helper">This opens <code>self-signed.badssl.com</code> in another tab.</p>
+        </div>
+        <img class="page-visual" src="assets/browser.svg" alt="Browser capabilities page illustration" />
+      </section>
+
+      <section class="three-column">
+        <article class="panel">
+          <h3>Screenshot Target</h3>
+          <p>Capture this card, the full page, or the highlighted section below as screenshot practice.</p>
+          <div class="scroll-target">Visual target for screenshot assertions</div>
+        </article>
+
+        <article class="panel">
+          <h3>Headless Check</h3>
+          <p>Run this page in headed and headless mode, then compare size-dependent assertions.</p>
+          <button class="button secondary" id="browser-info-button" type="button">Read Browser Info</button>
+          <p class="status-message" id="capability-status" aria-live="polite"></p>
+        </article>
+
+        <article class="panel">
+          <h3>Environment Notes</h3>
+          <ul>
+            <li>Use your framework to accept insecure certificates for SSL testing.</li>
+            <li>Load ad blocker or custom extensions through WebDriver options.</li>
+            <li>Verify UI remains stable with and without extensions enabled.</li>
+          </ul>
+        </article>
+      </section>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

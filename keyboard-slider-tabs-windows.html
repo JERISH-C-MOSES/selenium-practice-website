@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keyboard, Sliders, Tabs and Windows</title>
+    <link rel="stylesheet" href="shared.css" />
+  </head>
+  <body class="theme-keyboard">
+    <div class="container">
+      <header class="nav-shell">
+        <div class="brand">Selenium Sprint Lab</div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="js-scroll-upload.html">Next: JS and Upload</a>
+        </nav>
+        <button class="button ghost" type="button" data-logout>Logout</button>
+      </header>
+
+      <section class="page-header with-visual">
+        <div>
+          <p class="eyebrow">Lab 08</p>
+          <h1>Keyboard actions, sliders, tabs, and windows.</h1>
+          <p class="lead">Use sendKeys, special keys, slider movement, tab switching, and new-window handling on this page.</p>
+        </div>
+        <img class="page-visual" src="assets/keyboard.svg" alt="Keyboard and windows page illustration" />
+      </section>
+
+      <section class="three-column">
+        <article class="panel">
+          <h3>Keyboard Input</h3>
+          <label for="keyboard-input">Type and press special keys</label>
+          <input id="keyboard-input" type="text" placeholder="Try Tab, Enter, Arrow keys" />
+          <p class="helper" id="keyboard-log">Last keydown: none</p>
+        </article>
+
+        <article class="panel">
+          <h3>Slider</h3>
+          <label for="range-slider">Execution confidence</label>
+          <input id="range-slider" type="range" min="0" max="100" value="40" />
+          <p class="helper">Slider value: <span id="slider-value">40</span></p>
+        </article>
+
+        <article class="panel">
+          <h3>Tabs and Window</h3>
+          <button class="button primary" id="open-child-window" type="button">Open Child Window</button>
+          <p class="helper">This opens a new tab/window with its own title and selectors.</p>
+        </article>
+      </section>
+
+      <section class="panel" style="margin-top: 1rem;" data-tab-group>
+        <h3>Tabbed Content</h3>
+        <div class="tabs">
+          <button class="tab-button active" data-target="tab-one" type="button">Overview</button>
+          <button class="tab-button" data-target="tab-two" type="button">Commands</button>
+          <button class="tab-button" data-target="tab-three" type="button">Assertions</button>
+        </div>
+        <div class="tab-panel active" id="tab-one">Overview tab is visible by default.</div>
+        <div class="tab-panel" id="tab-two">Commands tab appears after clicking its tab button.</div>
+        <div class="tab-panel" id="tab-three">Assertions tab gives another visibility target for your tests.</div>
+      </section>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

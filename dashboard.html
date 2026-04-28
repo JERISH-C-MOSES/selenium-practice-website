@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selenium Sprint Lab | Dashboard</title>
+    <link rel="stylesheet" href="shared.css" />
+  </head>
+  <body class="theme-dashboard">
+    <div class="container">
+      <header class="nav-shell">
+        <div class="brand">Selenium Sprint Lab</div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="checkbox-alerts.html">Alerts</a>
+          <a href="frames-iframes.html">Frames</a>
+          <a href="advanced-topics.html">Advanced</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="button ghost" type="button" data-logout>Logout</button>
+        </div>
+      </header>
+
+      <section class="dashboard-hero">
+        <article class="panel dashboard-hero-copy">
+          <p class="eyebrow">Dashboard</p>
+          <h1>Pick a topic and jump straight into practice.</h1>
+          <p class="lead">
+            The site is organized as small focused labs, so it feels less
+            cluttered and your Selenium tests stay easier to write, debug, and
+            maintain.
+          </p>
+          <ul class="hero-points">
+            <li>Separate pages for alerts, frames, tables, uploads, windows, Shadow DOM, and data-driven flows.</li>
+            <li>Clear selectors and compact UI blocks that are easier to automate.</li>
+            <li>Faster navigation so you can practice one Selenium concept at a time.</li>
+          </ul>
+          <div class="button-row">
+            <a class="button primary" href="checkbox-alerts.html">Start with Alerts</a>
+            <a class="button secondary" href="advanced-topics.html">Open Advanced Lab</a>
+          </div>
+        </article>
+
+        <aside class="dashboard-side">
+          <article class="panel illustration-panel">
+            <img class="hero-illustration" src="assets/dashboard-hero.svg" alt="Selenium dashboard illustration" />
+          </article>
+          <article class="panel compact-card">
+            <span class="chip">12 focused labs</span>
+            <h3>Smaller, cleaner practice flow</h3>
+            <p>Each page targets one topic instead of pushing everything into one oversized screen.</p>
+          </article>
+          <article class="panel compact-card">
+            <span class="chip">Secure access</span>
+            <h3>Quick access</h3>
+            <p>Sign in, then move across alerts, frames, windows, tables, uploads, calculators, and Shadow DOM.</p>
+          </article>
+        </aside>
+      </section>
+
+      <section class="topic-grid">
+        <a class="topic-link" href="checkbox-alerts.html">
+          <img class="topic-thumb" src="assets/alerts.svg" alt="Alerts practice preview" />
+          <span>01</span>
+          <h3>Check Boxes and Alerts</h3>
+          <p>Checkbox states, simple alerts, confirm alerts, prompt alerts, delayed alerts, and modal overlays.</p>
+        </a>
+        <a class="topic-link" href="frames-iframes.html">
+          <img class="topic-thumb" src="assets/frames.svg" alt="Frames practice preview" />
+          <span>02</span>
+          <h3>Frames and Nested iFrames</h3>
+          <p>Main iframe, nested iframe, inner form, and cross-page frame navigation targets.</p>
+        </a>
+        <a class="topic-link" href="dropdowns-tables.html">
+          <img class="topic-thumb" src="assets/dropdowns.svg" alt="Dropdown practice preview" />
+          <span>03</span>
+          <h3>Different Types of Drop-downs</h3>
+          <p>Single select, multi-select, and custom dropdown patterns with stable selection results.</p>
+        </a>
+        <a class="topic-link" href="autosuggest-static-table.html">
+          <img class="topic-thumb" src="assets/autosuggest.svg" alt="Auto-suggest practice preview" />
+          <span>04</span>
+          <h3>Auto-suggest and Static Table</h3>
+          <p>Type-ahead suggestion lists plus static table search and row validation.</p>
+        </a>
+        <a class="topic-link" href="pagination-table.html">
+          <img class="topic-thumb" src="assets/pagination.svg" alt="Pagination practice preview" />
+          <span>05</span>
+          <h3>Dynamic Pagination Table</h3>
+          <p>Paginated data, row selection, status checks, and page assertions.</p>
+        </a>
+        <a class="topic-link" href="date-pickers.html">
+          <img class="topic-thumb" src="assets/dates.svg" alt="Date picker practice preview" />
+          <span>06</span>
+          <h3>Date Pickers</h3>
+          <p>Date, week, month, datetime-local, and range-style field practice.</p>
+        </a>
+        <a class="topic-link" href="mouse-actions.html">
+          <img class="topic-thumb" src="assets/mouse.svg" alt="Mouse actions practice preview" />
+          <span>07</span>
+          <h3>Mouse Actions</h3>
+          <p>Hover, double click, right click, drag and drop, and mouse state verification.</p>
+        </a>
+        <a class="topic-link" href="keyboard-slider-tabs-windows.html">
+          <img class="topic-thumb" src="assets/keyboard.svg" alt="Keyboard and window practice preview" />
+          <span>08</span>
+          <h3>Keyboard, Sliders, Tabs, Windows</h3>
+          <p>Key presses, slider movement, tabbed panels, and child-window handling.</p>
+        </a>
+        <a class="topic-link" href="js-scroll-upload.html">
+          <img class="topic-thumb" src="assets/upload.svg" alt="Upload and scrolling practice preview" />
+          <span>09</span>
+          <h3>JavascriptExecutor, Scrolling, Upload</h3>
+          <p>JS-style click targets, scroll destination checks, and file selection scenarios.</p>
+        </a>
+        <a class="topic-link" href="browser-capabilities.html">
+          <img class="topic-thumb" src="assets/browser.svg" alt="Browser capability practice preview" />
+          <span>10</span>
+          <h3>Screenshots, Headless, SSL, Ad Block, Extensions</h3>
+          <p>Browser capability checkpoints and UI targets that help validate environment setup.</p>
+        </a>
+        <a class="topic-link" href="advanced-topics.html">
+          <img class="topic-thumb" src="assets/advanced.svg" alt="Advanced DOM practice preview" />
+          <span>11</span>
+          <h3>Broken Links, SVG, Shadow DOM</h3>
+          <p>Simulated broken links, clickable SVG nodes, and open shadow-root interaction.</p>
+        </a>
+        <a class="topic-link" href="data-driven-testing.html">
+          <img class="topic-thumb" src="assets/data-driven.svg" alt="Data driven testing preview" />
+          <span>12</span>
+          <h3>Data Driven Testing</h3>
+          <p>Run repeated test data sets against a simple and compound interest calculator and verify results.</p>
+        </a>
+      </section>
+
+      <p class="footer-note">Tip: Start each page as a separate Selenium test class or group similar labs into a suite.</p>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

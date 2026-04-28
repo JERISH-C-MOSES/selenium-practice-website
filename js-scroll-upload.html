@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavascriptExecutor, Scrolling and Upload</title>
+    <link rel="stylesheet" href="shared.css" />
+  </head>
+  <body class="theme-js-upload">
+    <div class="container">
+      <header class="nav-shell">
+        <div class="brand">Selenium Sprint Lab</div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="browser-capabilities.html">Next: Browser Capabilities</a>
+        </nav>
+        <button class="button ghost" type="button" data-logout>Logout</button>
+      </header>
+
+      <section class="page-header with-visual">
+        <div>
+          <p class="eyebrow">Lab 09</p>
+          <h1>JavascriptExecutor, scrolling pages, and upload files.</h1>
+          <p class="lead">This page is useful for long-page scrolling practice and realistic file uploads through <code>input[type="file"]</code>.</p>
+        </div>
+        <img class="page-visual" src="assets/upload.svg" alt="Upload and scrolling page illustration" />
+      </section>
+
+      <section class="panel upload-panel">
+        <h3>Upload Files</h3>
+        <div class="upload-demo">
+          <label class="upload-inline" for="file-upload">
+            <span class="upload-label-text">Upload Files:</span>
+            <input id="file-upload" type="file" multiple onchange="window.renderUploadList && window.renderUploadList(this)" />
+          </label>
+          <div class="upload-results">
+            <h4>Files You Selected:</h4>
+            <div class="upload-list" id="upload-list" aria-live="polite">
+              <p class="upload-empty">No files selected yet.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel scroll-playground-panel" style="margin-top: 1rem;">
+        <h3>Scroll Playground</h3>
+        <p class="helper">Use this data-rich section to practice scrolling, row assertions, and reaching a button near the end of the page.</p>
+
+        <div class="table-card scroll-data-card">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Run ID</th>
+                <th>Scenario</th>
+                <th>Browser</th>
+                <th>Status</th>
+                <th>Owner</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>RUN-101</td><td>Login with valid user</td><td>Chrome</td><td>Passed</td><td>Jerish</td></tr>
+              <tr><td>RUN-102</td><td>Alert accept flow</td><td>Edge</td><td>Passed</td><td>Aisha</td></tr>
+              <tr><td>RUN-103</td><td>iFrame text capture</td><td>Firefox</td><td>Blocked</td><td>Rahul</td></tr>
+              <tr><td>RUN-104</td><td>Custom dropdown select</td><td>Chrome</td><td>Passed</td><td>Meera</td></tr>
+              <tr><td>RUN-105</td><td>Pagination next page</td><td>Edge</td><td>Failed</td><td>David</td></tr>
+              <tr><td>RUN-106</td><td>Date picker range</td><td>Firefox</td><td>Passed</td><td>Nina</td></tr>
+              <tr><td>RUN-107</td><td>Double click action</td><td>Chrome</td><td>Passed</td><td>Arun</td></tr>
+              <tr><td>RUN-108</td><td>Slider value update</td><td>Edge</td><td>Passed</td><td>Priya</td></tr>
+              <tr><td>RUN-109</td><td>New tab handle switch</td><td>Chrome</td><td>Blocked</td><td>Kiran</td></tr>
+              <tr><td>RUN-110</td><td>File upload validation</td><td>Firefox</td><td>Passed</td><td>Leena</td></tr>
+              <tr><td>RUN-111</td><td>Shadow DOM input</td><td>Edge</td><td>Failed</td><td>Sam</td></tr>
+              <tr><td>RUN-112</td><td>SVG node click</td><td>Chrome</td><td>Passed</td><td>Vikram</td></tr>
+              <tr><td>RUN-113</td><td>Headless execution</td><td>Chrome</td><td>Passed</td><td>Sneha</td></tr>
+              <tr><td>RUN-114</td><td>Broken link verification</td><td>Firefox</td><td>Passed</td><td>Anil</td></tr>
+              <tr><td>RUN-115</td><td>Compound interest data row</td><td>Edge</td><td>Passed</td><td>Ishita</td></tr>
+              <tr><td>RUN-116</td><td>Prompt alert input</td><td>Chrome</td><td>Passed</td><td>Harish</td></tr>
+              <tr><td>RUN-117</td><td>Modal close verification</td><td>Firefox</td><td>Blocked</td><td>Pooja</td></tr>
+              <tr><td>RUN-118</td><td>Scroll to footer CTA</td><td>Edge</td><td>Passed</td><td>Rohan</td></tr>
+              <tr><td>RUN-119</td><td>Window title assertion</td><td>Chrome</td><td>Passed</td><td>Neha</td></tr>
+              <tr><td>RUN-120</td><td>Static table row count</td><td>Firefox</td><td>Passed</td><td>Farhan</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="scroll-notes">
+          <div class="scroll-note"><strong>Tip 1:</strong> Scroll until the final CTA becomes visible.</div>
+          <div class="scroll-note"><strong>Tip 2:</strong> Verify row content before and after scrolling.</div>
+          <div class="scroll-note"><strong>Tip 3:</strong> Use JavaScriptExecutor or Actions based on your test style.</div>
+        </div>
+
+        <div class="scroll-target" id="scroll-destination">
+          <h4>Destination Reached</h4>
+          <p>You are now at the bottom action area. Click the button below to confirm the scroll target was reached.</p>
+          <button class="button primary" id="scroll-end-button" type="button" onclick="window.handleScrollEndClick && window.handleScrollEndClick()">Click Final Button</button>
+          <p class="status-message" id="scroll-end-status" aria-live="polite"></p>
+        </div>
+      </section>
+    </div>
+    <script src="main.js"></script>
+    <script>
+      (function () {
+        const uploadInput = document.getElementById("file-upload");
+        const uploadList = document.getElementById("upload-list");
+        const finalButton = document.getElementById("scroll-end-button");
+        const finalStatus = document.getElementById("scroll-end-status");
+
+        function renderUploadFiles(input) {
+          if (!uploadList) {
+            return;
+          }
+
+          const files = Array.from((input && input.files) || []);
+          uploadList.innerHTML = "";
+
+          if (!files.length) {
+            uploadList.innerHTML = '<p class="upload-empty">No files selected yet.</p>';
+            return;
+          }
+
+          files.forEach(function (file) {
+            const item = document.createElement("p");
+            item.className = "upload-file-name";
+            item.textContent = file.name;
+            uploadList.appendChild(item);
+          });
+        }
+
+        function showFinalClickMessage() {
+          if (!finalStatus) {
+            return;
+          }
+
+          finalStatus.textContent = "The button is clicked.";
+          finalStatus.className = "status-message success";
+        }
+
+        window.renderUploadList = renderUploadFiles;
+        window.handleScrollEndClick = showFinalClickMessage;
+
+        uploadInput && uploadInput.addEventListener("change", function () {
+          renderUploadFiles(uploadInput);
+        });
+
+        finalButton && finalButton.addEventListener("click", showFinalClickMessage);
+      })();
+    </script>
+  </body>
+</html>

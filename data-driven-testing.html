@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Driven Testing</title>
+    <link rel="stylesheet" href="shared.css" />
+  </head>
+  <body class="theme-data-driven">
+    <div class="container">
+      <header class="nav-shell">
+        <div class="brand">Selenium Sprint Lab</div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="checkbox-alerts.html">Restart Labs</a>
+        </nav>
+        <button class="button ghost" type="button" data-logout>Logout</button>
+      </header>
+
+      <section class="page-header with-visual">
+        <div>
+          <p class="eyebrow">Lab 12</p>
+          <h1>Data Driven Testing with an interest calculator.</h1>
+          <p class="lead">Use this page to feed multiple input combinations from Excel, CSV, JSON, or a test data provider and assert repeatable calculation results.</p>
+        </div>
+        <img class="page-visual" src="assets/data-driven.svg" alt="Data driven calculator illustration" />
+      </section>
+
+      <section class="calculator-shell">
+        <div class="calculator-header">Interest Calculator</div>
+        <div class="calculator-body">
+          <div class="section-title">
+            <h2>Simple / Compound Interest</h2>
+            <p>Perfect for parameterized test cases with different principal, rate, period unit, and period values.</p>
+          </div>
+
+          <form class="stack" id="interest-form" novalidate>
+            <div class="inline-row">
+              <label class="choice">
+                <input id="interest-simple" name="interestType" type="radio" value="simple" />
+                Simple Interest
+              </label>
+              <label class="choice">
+                <input id="interest-compound" name="interestType" type="radio" value="compound" />
+                Compound Interest
+              </label>
+            </div>
+
+            <label for="principal-amount">Principal Amount (Rs.)</label>
+            <div class="input-addon">
+              <span class="input-addon-label">Rs</span>
+              <input id="principal-amount" name="principalAmount" type="number" min="0" step="0.01" placeholder="Enter principal amount" />
+            </div>
+
+            <label for="annual-rate">Annual Rate</label>
+            <div class="input-addon">
+              <input id="annual-rate" name="annualRate" type="number" min="0" step="0.01" placeholder="Enter annual rate" />
+              <span class="input-addon-label">%</span>
+            </div>
+
+            <label for="period-unit">Period Unit</label>
+            <select id="period-unit" name="periodUnit">
+              <option value="" selected>Select period unit</option>
+              <option value="months">Months</option>
+              <option value="years">Years</option>
+              <option value="days">Days</option>
+            </select>
+
+            <label for="period-value">Period Value</label>
+            <input id="period-value" name="periodValue" type="number" min="0" step="0.01" placeholder="Enter period value" />
+
+            <div class="button-row">
+              <button class="button primary calculator-primary" id="calculate-interest" type="submit">Calculate</button>
+              <button class="button secondary" id="reset-interest" type="reset">Reset</button>
+            </div>
+            <p class="status-message" id="interest-status" aria-live="polite"></p>
+          </form>
+
+          <div class="result-grid">
+            <article class="result-card">
+              <span class="chip">Interest</span>
+              <h3 id="interest-result">Rs 0.00</h3>
+            </article>
+            <article class="result-card">
+              <span class="chip">Total Amount</span>
+              <h3 id="total-result">Rs 0.00</h3>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

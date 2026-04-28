@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Broken Links, SVG and Shadow DOM</title>
+    <link rel="stylesheet" href="shared.css" />
+  </head>
+  <body class="theme-advanced">
+    <div class="container">
+      <header class="nav-shell">
+        <div class="brand">Selenium Sprint Lab</div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="checkbox-alerts.html">Restart Labs</a>
+        </nav>
+        <button class="button ghost" type="button" data-logout>Logout</button>
+      </header>
+
+      <section class="page-header with-visual">
+        <div>
+          <p class="eyebrow">Lab 11</p>
+          <h1>Handling broken links, SVG elements, and Shadow DOM.</h1>
+          <p class="lead">This page gives you direct targets for link validation scripts, SVG element interaction, and shadow-root access.</p>
+        </div>
+        <img class="page-visual" src="assets/advanced.svg" alt="Advanced topics page illustration" />
+      </section>
+
+      <section class="three-column">
+        <article class="panel">
+          <h3>Broken Link Targets</h3>
+          <div class="stack">
+            <a class="broken-link" href="/missing-report.pdf" id="broken-link-report">Broken report link</a>
+            <a class="broken-link" href="/dead-api-endpoint" id="broken-link-api">Broken API docs link</a>
+            <a href="dashboard.html" id="healthy-link-dashboard">Healthy internal link</a>
+          </div>
+        </article>
+
+        <article class="panel">
+          <h3>SVG Interaction</h3>
+          <svg width="220" height="160" viewBox="0 0 220 160" aria-label="SVG practice">
+            <rect x="20" y="20" width="180" height="120" rx="16" fill="#d9ebe8"></rect>
+            <circle id="svg-circle" cx="110" cy="80" r="34" fill="#c9653d"></circle>
+            <text x="110" y="86" text-anchor="middle" fill="white" font-size="16">Click</text>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <h3>Shadow DOM</h3>
+          <demo-shadow-card></demo-shadow-card>
+        </article>
+      </section>
+
+      <section class="panel" style="margin-top: 1rem;">
+        <p class="status-message" id="advanced-status" aria-live="polite"></p>
+      </section>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

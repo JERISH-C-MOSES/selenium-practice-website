@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date Pickers</title>
+    <link rel="stylesheet" href="shared.css" />
+  </head>
+  <body class="theme-dates">
+    <div class="container">
+      <header class="nav-shell">
+        <div class="brand">Selenium Sprint Lab</div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="mouse-actions.html">Next: Mouse</a>
+        </nav>
+        <button class="button ghost" type="button" data-logout>Logout</button>
+      </header>
+
+      <section class="page-header with-visual">
+        <div>
+          <p class="eyebrow">Lab 06</p>
+          <h1>Handling date pickers.</h1>
+          <p class="lead">This page includes common browser-native picker types that appear frequently in enterprise forms.</p>
+        </div>
+        <img class="page-visual" src="assets/dates.svg" alt="Date picker page illustration" />
+      </section>
+
+      <section class="two-column">
+        <article class="panel stack">
+          <label for="single-date">Single date</label>
+          <input id="single-date" type="date" />
+
+          <label for="week-picker">Week picker</label>
+          <input id="week-picker" type="week" />
+
+          <label for="month-picker">Month picker</label>
+          <input id="month-picker" type="month" />
+        </article>
+
+        <article class="panel stack">
+          <label for="date-time-picker">Date and time</label>
+          <input id="date-time-picker" type="datetime-local" />
+
+          <label for="range-start">Range start</label>
+          <input id="range-start" type="date" />
+
+          <label for="range-end">Range end</label>
+          <input id="range-end" type="date" />
+        </article>
+      </section>
+
+      <section class="panel" style="margin-top: 1rem;">
+        <div class="button-row">
+          <button class="button primary" id="date-submit" type="button">Capture Date Values</button>
+        </div>
+        <p class="status-message" id="date-status" aria-live="polite"></p>
+      </section>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

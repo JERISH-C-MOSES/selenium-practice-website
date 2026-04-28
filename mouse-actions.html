@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse Actions</title>
+    <link rel="stylesheet" href="shared.css" />
+  </head>
+  <body class="theme-mouse">
+    <div class="container">
+      <header class="nav-shell">
+        <div class="brand">Selenium Sprint Lab</div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="keyboard-slider-tabs-windows.html">Next: Keyboard</a>
+        </nav>
+        <button class="button ghost" type="button" data-logout>Logout</button>
+      </header>
+
+      <section class="page-header with-visual">
+        <div>
+          <p class="eyebrow">Lab 07</p>
+          <h1>Mouse actions with industry-style interaction targets.</h1>
+          <p class="lead">Use hover, double click, right click, and drag-and-drop here. These are common places where Selenium `Actions` chains get used.</p>
+        </div>
+        <img class="page-visual" src="assets/mouse.svg" alt="Mouse actions page illustration" />
+      </section>
+
+      <section class="three-column">
+        <article class="panel">
+          <h3>Hover Target</h3>
+          <div class="hover-box" id="hover-box">Move mouse here</div>
+          <p class="helper" id="hover-result">Hover not detected yet.</p>
+        </article>
+
+        <article class="panel">
+          <h3>Double Click</h3>
+          <div class="hover-box" id="double-click-box">Double click this box</div>
+        </article>
+
+        <article class="panel" style="position: relative;">
+          <h3>Right Click</h3>
+          <div class="hover-box" id="context-target">Right click this box</div>
+          <div class="context-menu hidden" id="custom-context-menu">
+            <button class="button ghost" type="button">Inspect Node</button>
+            <button class="button ghost" type="button">Open Log</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" style="margin-top: 1rem;">
+        <h3>Drag and Drop</h3>
+        <div class="drag-row">
+          <div class="drag-item" id="drag-source" draggable="true">Drag Source</div>
+          <div class="drop-zone" id="drop-target">Drop Target</div>
+        </div>
+        <p class="status-message" id="mouse-status" aria-live="polite"></p>
+      </section>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

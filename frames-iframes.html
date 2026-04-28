@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frames and iFrames</title>
+    <link rel="stylesheet" href="shared.css" />
+  </head>
+  <body class="theme-frames">
+    <div class="container">
+      <header class="nav-shell">
+        <div class="brand">Selenium Sprint Lab</div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="dropdowns-tables.html">Next: Drop-downs</a>
+        </nav>
+        <button class="button ghost" type="button" data-logout>Logout</button>
+      </header>
+
+      <section class="page-header with-visual">
+        <div>
+          <p class="eyebrow">Lab 02</p>
+          <h1>Handling frames, iFrames, and nested iFrames.</h1>
+          <p class="lead">Switch into the first iframe, then continue into the nested iframe. Each frame contains unique selectors so the context shift is obvious.</p>
+        </div>
+        <img class="page-visual" src="assets/frames.svg" alt="Frames page illustration" />
+      </section>
+
+      <section class="two-column">
+        <article class="panel">
+          <div class="section-title">
+            <h2>Main iFrame</h2>
+            <p>Start here for a standard `switchTo().frame(...)` scenario.</p>
+          </div>
+          <iframe class="iframe-shell" id="main-practice-frame" src="frame-main.html" title="Main practice frame"></iframe>
+        </article>
+
+        <article class="panel">
+          <div class="section-title">
+            <h2>Nested iFrame Container</h2>
+            <p>Switch to the outer frame, then to the inner child frame.</p>
+          </div>
+          <iframe class="iframe-shell" id="nested-practice-frame" src="nested-parent.html" title="Nested practice frame"></iframe>
+        </article>
+      </section>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

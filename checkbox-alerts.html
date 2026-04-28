@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Check Boxes and Alerts</title>
+    <link rel="stylesheet" href="shared.css" />
+  </head>
+  <body class="theme-alerts">
+    <div class="container">
+      <header class="nav-shell">
+        <div class="brand">Selenium Sprint Lab</div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="frames-iframes.html">Next: Frames</a>
+        </nav>
+        <button class="button ghost" type="button" data-logout>Logout</button>
+      </header>
+
+      <section class="page-header with-visual">
+        <div>
+          <p class="eyebrow">Lab 01</p>
+          <h1>Handling check boxes and different types of alerts.</h1>
+          <p class="lead">This page includes single checkbox checks, bulk operations, browser alerts, delayed alerts, and modal overlays.</p>
+        </div>
+        <img class="page-visual" src="assets/alerts.svg" alt="Alerts page illustration" />
+      </section>
+
+      <section class="two-column">
+        <article class="panel">
+          <div class="section-title">
+            <div class="section-title-row">
+              <h2>Check Box States</h2>
+              <button class="button secondary help-button" type="button" data-help-topic="checkbox-states">Help</button>
+            </div>
+            <p>Practice radio-button selection for gender and checkbox selection for days of the week.</p>
+          </div>
+          <div class="stack">
+            <fieldset>
+              <legend>Gender:</legend>
+              <div class="inline-row">
+                <label class="choice"><input id="gender-male" name="gender" type="radio" value="male" /> Male</label>
+                <label class="choice"><input id="gender-female" name="gender" type="radio" value="female" /> Female</label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Days:</legend>
+              <div class="checkbox-grid">
+                <label class="choice"><input class="feature-checkbox" id="day-sunday" type="checkbox" value="Sunday" /> Sunday</label>
+                <label class="choice"><input class="feature-checkbox" id="day-monday" type="checkbox" value="Monday" /> Monday</label>
+                <label class="choice"><input class="feature-checkbox" id="day-tuesday" type="checkbox" value="Tuesday" /> Tuesday</label>
+                <label class="choice"><input class="feature-checkbox" id="day-wednesday" type="checkbox" value="Wednesday" /> Wednesday</label>
+                <label class="choice"><input class="feature-checkbox" id="day-thursday" type="checkbox" value="Thursday" /> Thursday</label>
+                <label class="choice"><input class="feature-checkbox" id="day-friday" type="checkbox" value="Friday" /> Friday</label>
+                <label class="choice"><input class="feature-checkbox" id="day-saturday" type="checkbox" value="Saturday" /> Saturday</label>
+              </div>
+            </fieldset>
+            <div class="button-row">
+              <button class="button primary" id="select-all-checkboxes" type="button">Select All</button>
+              <button class="button secondary" id="clear-all-checkboxes" type="button">Clear All</button>
+            </div>
+            <p class="status-message" id="checkbox-status" aria-live="polite"></p>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="section-title">
+            <div class="section-title-row">
+              <h2>Alert Variants</h2>
+              <button class="button secondary help-button" type="button" data-help-topic="alert-variants">Help</button>
+            </div>
+            <p>Practice alert accept, dismiss, prompt entry, and delayed alert wait conditions.</p>
+          </div>
+          <div class="stack">
+            <button class="button secondary" id="simple-alert-button" type="button">Simple Alert</button>
+            <button class="button secondary" id="confirm-alert-button" type="button">Confirm Alert</button>
+            <button class="button secondary" id="prompt-alert-button" type="button">Prompt Alert</button>
+            <button class="button secondary" id="timed-alert-button" type="button">Timed Alert</button>
+            <p class="status-message" id="alert-status" aria-live="polite"></p>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" style="margin-top: 1rem;">
+        <div class="section-title">
+          <div class="section-title-row">
+            <h2>Modal Dialog</h2>
+            <button class="button secondary help-button" type="button" data-help-topic="modal-dialog">Help</button>
+          </div>
+          <p>Useful for testing overlay visibility, close buttons, and backdrop clicks.</p>
+        </div>
+        <div class="button-row">
+          <button class="button primary" id="open-modal" type="button">Open Modal</button>
+        </div>
+        <p class="status-message" id="modal-status">Modal is closed.</p>
+      </section>
+    </div>
+
+    <div class="modal-backdrop hidden" id="modal-backdrop">
+      <div class="modal-card">
+        <h3>Industry-style Modal</h3>
+        <p>Modal content loaded. Test visibility, focus switch, and close action here.</p>
+        <button class="button primary" id="close-modal" type="button">Close Modal</button>
+      </div>
+    </div>
+    <div class="modal-backdrop hidden" id="help-backdrop">
+      <div class="modal-card help-modal-card">
+        <div class="section-title-row">
+          <div>
+            <p class="eyebrow">Help Center</p>
+            <h3 id="help-title">Element Help</h3>
+          </div>
+          <button class="button ghost" id="close-help" type="button">Close</button>
+        </div>
+        <div class="help-tab-row">
+          <button class="tab-button active help-tab-button" data-help-tab="syntax" type="button">Syntax</button>
+          <button class="tab-button help-tab-button" data-help-tab="locator" type="button">Locator</button>
+          <button class="tab-button help-tab-button" data-help-tab="full-code" type="button">Full Selenium Code</button>
+        </div>
+        <div class="help-panel active" id="help-panel-syntax">
+          <pre class="code-block"><code id="help-syntax"></code></pre>
+        </div>
+        <div class="help-panel" id="help-panel-locator">
+          <div class="help-tab-row">
+            <button class="tab-button active locator-tab-button" data-locator-tab="xpath" type="button">XPath</button>
+            <button class="tab-button locator-tab-button" data-locator-tab="css" type="button">CSS</button>
+          </div>
+          <pre class="code-block"><code id="help-locator"></code></pre>
+        </div>
+        <div class="help-panel" id="help-panel-full-code">
+          <pre class="code-block"><code id="help-full-code"></code></pre>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

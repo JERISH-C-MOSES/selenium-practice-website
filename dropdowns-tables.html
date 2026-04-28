@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Different Types of Drop-downs</title>
+    <link rel="stylesheet" href="shared.css" />
+  </head>
+  <body class="theme-dropdowns">
+    <div class="container">
+      <header class="nav-shell">
+        <div class="brand">Selenium Sprint Lab</div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="autosuggest-static-table.html">Next: Auto-suggest</a>
+        </nav>
+        <button class="button ghost" type="button" data-logout>Logout</button>
+      </header>
+
+      <section class="page-header with-visual">
+        <div>
+          <p class="eyebrow">Lab 03</p>
+          <h1>Handling different types of drop-downs.</h1>
+          <p class="lead">This lab covers native select, multi-select, and custom dropdown patterns that appear frequently in enterprise apps.</p>
+        </div>
+        <img class="page-visual" src="assets/dropdowns.svg" alt="Dropdown page illustration" />
+      </section>
+
+      <section class="three-column">
+        <article class="panel">
+          <h3>Single Select</h3>
+          <label for="single-select">Browser</label>
+          <select id="single-select" name="browser">
+            <option value="" selected>Select browser</option>
+            <option value="chrome">Chrome</option>
+            <option value="firefox">Firefox</option>
+            <option value="edge">Edge</option>
+          </select>
+        </article>
+
+        <article class="panel">
+          <h3>Multi Select</h3>
+          <label for="multi-select">Environments</label>
+          <select id="multi-select" name="environments" multiple size="5">
+            <option value="dev">Dev</option>
+            <option value="qa">QA</option>
+            <option value="stage">Stage</option>
+            <option value="uat">UAT</option>
+            <option value="prod-mirror">Prod Mirror</option>
+          </select>
+          <button class="button secondary" id="show-multi-values" type="button">Read Values</button>
+        </article>
+
+        <article class="panel">
+          <h3>Custom Drop-down</h3>
+          <button class="button secondary" id="custom-dropdown-trigger" type="button">Open Custom Menu</button>
+          <div class="stack hidden" id="custom-dropdown-menu" style="margin-top: 0.8rem;">
+            <button class="button ghost" data-value="Smoke Suite" type="button">Smoke Suite</button>
+            <button class="button ghost" data-value="Regression Suite" type="button">Regression Suite</button>
+            <button class="button ghost" data-value="Sanity Suite" type="button">Sanity Suite</button>
+          </div>
+          <p class="helper">Selected value: <strong id="custom-dropdown-value">None</strong></p>
+        </article>
+      </section>
+
+      <section class="panel" style="margin-top: 1rem;">
+        <h3>Drop-down Result</h3>
+        <p class="status-message" id="dropdown-status" aria-live="polite"></p>
+        <p class="helper">This status area is useful for assertions after selecting single, multiple, and custom options.</p>
+      </section>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

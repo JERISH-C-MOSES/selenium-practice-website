@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Pagination Table</title>
+    <link rel="stylesheet" href="shared.css" />
+  </head>
+  <body class="theme-pagination">
+    <div class="container">
+      <header class="nav-shell">
+        <div class="brand">Selenium Sprint Lab</div>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="date-pickers.html">Next: Dates</a>
+        </nav>
+        <button class="button ghost" type="button" data-logout>Logout</button>
+      </header>
+
+      <section class="page-header with-visual">
+        <div>
+          <p class="eyebrow">Lab 05</p>
+          <h1>Handling dynamic pagination web tables.</h1>
+          <p class="lead">Use pagination buttons, validate current page number, and inspect rows rendered only for that page.</p>
+        </div>
+        <img class="page-visual" src="assets/pagination.svg" alt="Pagination page illustration" />
+      </section>
+
+      <section class="table-card">
+        <h3>Paginated Execution Results</h3>
+        <p>Current page: <strong id="current-page-label">1</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Scenario</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="pagination-body"></tbody>
+          </table>
+        </div>
+        <div class="pagination" id="pagination-controls"></div>
+        <p class="status-message" id="pagination-status" aria-live="polite"></p>
+      </section>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
