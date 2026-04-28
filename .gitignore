@@ -1,17 +1,6 @@
 node_modules/
 npm-debug.log*
-
-# Runtime data created by the backend. Do not commit real users, sessions, or bookings.
 backend-data/
-
-# The flight app is split into its own standalone project folder.
-# Initialize and push it separately if you want two GitHub repositories.
-flight-booking-project/
-
-# Local environment secrets.
-.env
-.env.*
-!.env.example
 
 # OS/editor noise.
 .DS_Store

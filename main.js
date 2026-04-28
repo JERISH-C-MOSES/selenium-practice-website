@@ -198,36 +198,13 @@ public class ModalDialogExample {
 
 const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
-const apiJson = async (url, options = {}) => {
-  const response = await fetch(url, {
-    credentials: "same-origin",
-    headers: {
-      "Content-Type": "application/json",
-      ...(options.headers || {})
-    },
-    ...options
-  });
-
-  const data = await response.json().catch(() => ({}));
-  if (!response.ok) {
-    throw new Error(data.error || "Request failed.");
-  }
-  return data;
-};
-
-const requireAuth = async () => {
+const requireAuth = () => {
   if (!protectedPages.includes(currentPage)) {
     return true;
   }
 
-  try {
-    const session = await apiJson("/api/auth/session");
-    if (session.authenticated) {
-      sessionStorage.setItem("seleniumLabAuth", "true");
-      return true;
-    }
-  } catch {
-    // ignore and fall through
+  if (sessionStorage.getItem("seleniumLabAuth") === "true") {
+    return true;
   }
 
   sessionStorage.removeItem("seleniumLabAuth");
@@ -235,12 +212,7 @@ const requireAuth = async () => {
   return false;
 };
 
-const logout = async () => {
-  try {
-    await apiJson("/api/auth/logout", { method: "POST" });
-  } catch {
-    // ignore logout network issues and still clear client state
-  }
+const logout = () => {
   sessionStorage.removeItem("seleniumLabAuth");
   window.location.href = "index.html";
 };
@@ -277,7 +249,7 @@ const setStatus = (id, text, level = "") => {
 const initLoginPage = () => {
   const form = document.getElementById("login-form");
 
-  form?.addEventListener("submit", async (event) => {
+  form?.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const username = document.getElementById("username").value.trim();
@@ -288,21 +260,13 @@ const initLoginPage = () => {
       return;
     }
 
-    try {
-      await apiJson("/api/auth/login", {
-        method: "POST",
-        body: JSON.stringify({
-          username,
-          password,
-          app: "selenium-practice"
-        })
-      });
+    if (username === DEMO_USERNAME && password === DEMO_PASSWORD) {
       sessionStorage.setItem("seleniumLabAuth", "true");
       window.location.href = "dashboard.html";
       return;
-    } catch (error) {
-      setStatus("login-status", error.message || "Invalid credentials. Please try again.", "danger");
     }
+
+    setStatus("login-status", "Invalid credentials. Check the username and password.", "danger");
   });
 };
 
@@ -923,8 +887,8 @@ const initAdvancedPage = () => {
   });
 };
 
-document.addEventListener("DOMContentLoaded", async () => {
-  const allowed = await requireAuth();
+document.addEventListener("DOMContentLoaded", () => {
+  const allowed = requireAuth();
   if (!allowed) {
     return;
   }

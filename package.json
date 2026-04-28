@@ -1,13 +1,8 @@
 {
   "name": "selenium-practice-portal",
   "version": "1.0.0",
-  "description": "Selenium practice portal with backend login",
-  "main": "server.js",
+  "description": "Static Selenium practice portal for GitHub Pages",
   "scripts": {
-    "start": "node server.js",
-    "check": "node --check server.js && node --check main.js"
-  },
-  "engines": {
-    "node": ">=18"
+    "check": "node --check main.js"
   }
 }

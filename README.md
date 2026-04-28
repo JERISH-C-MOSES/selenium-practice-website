@@ -1,22 +1,18 @@
 # Selenium Practice Portal
 
-This is the standalone Selenium practice website.
+This is the standalone frontend-only Selenium practice website.
 
 It includes focused labs for alerts, checkboxes, frames, dropdowns, tables, pagination, date pickers, mouse actions, keyboard actions, uploads, browser capabilities, Shadow DOM, SVG, broken links, and data-driven testing.
 
 ## Run Locally
 
-```powershell
-npm start
-```
+Open `index.html` directly in a browser, or use any simple static server.
 
-Open:
-
-- http://localhost:3000
-
-Default local portal credentials:
+Default demo credentials:
 
 - `JERISH` / `Jerish@123`
+
+Login state is stored in browser `sessionStorage`.
 
 ## Check Before Push
 
@@ -24,18 +20,15 @@ Default local portal credentials:
 npm run check
 ```
 
-## Push To GitHub
+## Deploy On GitHub Pages
 
-From this folder:
+Push this folder to GitHub, then enable GitHub Pages:
 
-```powershell
-cd "C:\Users\hello\OneDrive\Documents\New project\selenium-practice-website"
-git init
-git add .
-git commit -m "Initial Selenium practice portal"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_SELENIUM_REPOSITORY.git
-git push -u origin main
-```
+1. Open the repository on GitHub.
+2. Go to `Settings`.
+3. Go to `Pages`.
+4. Choose branch `main`.
+5. Choose folder `/root`.
+6. Save.
 
-This project needs the Node backend for login/session behavior. GitHub Pages alone will not run the backend APIs.
+GitHub will give you a public URL. No backend or localhost is required.
